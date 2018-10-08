@@ -2,7 +2,7 @@
 layout: post
 title: "Install nginx using compile mode and configure ssl encrypted proxy service"
 description: "编译安装Nginx并配置ssl加密的代理服务"
-categories: [WebService]
+categories: [Web-Service]
 tags: [SSL, nginx, https, pcre, openssl]
 redirect_from:
   - /2018/04/02/
