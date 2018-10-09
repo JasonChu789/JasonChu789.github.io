@@ -87,3 +87,15 @@ layout: blog
         </div>
     </div>
 </article>
+{% include valine_comment.html %}
+<script type="text/javascript">
+    var valine = new Valine();
+    valine.init({
+        el: '#comment',
+        appId: "{{ site.lean_cloud.app_id }}",
+        appKey: "{{ site.lean_cloud.app_key }}",
+        notify: true,
+        path: "{{ page.url }}",
+        placeholder: "type your comment here"
+    })
+</script>
