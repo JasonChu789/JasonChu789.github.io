@@ -11,9 +11,10 @@ redirect_from:
 * Kramdown table of contents
 {:toc .toc}
 
-# Data Visualization - Dot Lang & Graphviz
+Data Visualization - Dot Lang & Graphviz
+==========
 
-## Graphviz安装
+# Graphviz安装
 依据[官网](http://www.graphviz.org/Download..php)讲述的下载、安装方式进行。
 
 **Windows**:
@@ -72,7 +73,7 @@ gvedit
 DOT (graph description language)
 DOT是一种用文本文件表示的图像描述语言，一般DOT文件以"gv"或者"dot"为后缀（"gv"的表示方式是用来跟早期(2007之前)的Microsoft  Word区分）。[^f6]
 
-### Syntax
+## Syntax
 DOT 的抽象语法表达[^f7]
 ```
      graph	:	[ strict ] (graph | digraph) [ ID ] '{' stmt_list '}'
@@ -104,7 +105,7 @@ compass_pt	:	(n | ne | e | se | s | sw | w | nw | c | _)
 [http://blog.csdn.net/zhangskd/article/details/8250470](http://blog.csdn.net/zhangskd/article/details/8250470)  
 [http://www.graphviz.org/Gallery.php](http://www.graphviz.org/Gallery.php)  
 
-### Layout programs
+## Layout programs
 The DOT language defines a graph, but does not provide facilities for rendering the graph. There are several programs that can be used to render, view, and manipulate graphs in the DOT language:
 
 Graphviz - A collection of libraries and utilities to manipulate and render graphs  

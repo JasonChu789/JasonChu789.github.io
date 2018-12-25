@@ -11,7 +11,8 @@ redirect_from:
 * Kramdown table of contents
 {:toc .toc}
 
-# 理解皮尔逊相关系数（Pearson Correlation Coefficient）
+理解皮尔逊相关系数（Pearson Correlation Coefficient）
+==========
 
 要理解Pearson相关系数，首先要理解协方差（Covariance），协方差是一个反映两个随机变量相关程度的指标，如果一个变量跟随着另一个变量同时变大或者变小，那么这两个变量的协方差就是正值，反之相反，公式如下：  
 $$ cov(x,y) = \dfrac{ \sum_{i=1}^n (x_{i}-x_{μ})(y_{i}-y_{μ}) }{n-1} $$  

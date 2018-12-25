@@ -11,16 +11,17 @@ redirect_from:
 * Kramdown table of contents
 {:toc .toc}
 
-# Impala中的invalidate metadata和refresh
+Impala中的invalidate metadata和refresh
+==========
 
 原文：[https://blog.csdn.net/yu616568/article/details/72780346](https://blog.csdn.net/yu616568/article/details/72780346)
 
-## 前言
+# 前言
 
 Impala采用了比较奇葩的多个impalad同时提供服务的方式，并且它会由catalogd缓存全部元数据，再通过statestored完成每一次的元数据的更新到impalad节点上，Impala集群会缓存全部的元数据，这种缓存机制就导致通过其他手段更新元数据或者数据对于Impala是无感知的，例如通过hive建表，直接拷贝新的数据到HDFS上等，Impala提供了两种机制来实现元数据的更新，分别是INVALIDATE METADATA和REFRESH操作，本文将详细介绍这两个操作。
 
 
-## 使用方式
+# 使用方式
 
 INVALIDATE METADATA是用于刷新全库或者某个表的元数据，包括表的元数据和表内的文件数据，它会首先清除表的缓存，然后从metastore中重新加载全部数据并缓存，该操作代价比较重，主要用于在hive中修改了表的元数据，需要同步到impalad，例如create table/drop table/alter table add columns等。
 
@@ -40,7 +41,7 @@ REFRESH [table] PARTITION [partition]       //刷新某个表的某个分区
 
 
 
-## INVALIDATE METADATA原理
+# INVALIDATE METADATA原理
 
 对于INVALIDATE METADATA操作，由客户端将查询提交到某个impalad节点上，执行如下的操作：
 
@@ -67,7 +68,7 @@ INVALIDATE METADATA操作带来的副作用是生成一个新的未完成的元�
 
 
 
-## REFRESH原理
+# REFRESH原理
 
 对于REFRESH操作，由客户端将查询提交到某个impalad节点上，执行如下的操作：
 
@@ -90,7 +91,7 @@ INVALIDATE METADATA操作带来的副作用是生成一个新的未完成的元�
 
 
 
-## 使用原则
+# 使用原则
 
 如果在使用过程中涉及到了元数据或者数据的更新，则需要使用这两者中的一个操作完成，具体如何选择需要根据如下原则：
 
@@ -104,7 +105,7 @@ invalidate metadata操作比refresh要重量级
 
 
 
-## 总结
+# 总结
 
 REFRESH和INVALIDATE METADATA对于impala而言是比较重要的两个操作，分别处理数据和元数据的修改，其中REFRESH操作是同步的，INVALIDATE METADATA是异步的，本文详细介绍了两种语句的适用场景和执行原理，以及可能造成的影响，最重要的是，需要谨记这两种查询使用场景。
 

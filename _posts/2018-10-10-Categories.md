@@ -11,18 +11,20 @@ redirect_from:
 * Kramdown table of contents
 {:toc .toc}
 
-# Categories
-Distributed-Computing, 
-Cloud-Computing, 
-Algorithm, 
-Data-Structure, 
-Java, 
-Python, 
-Web-Service, 
-Linux, 
-MySQL, 
-Data-Mining, 
-Machine-Learning, 
-Mathematics-Statistics, 
-Concept, 
-demo
+Categories
+==========
+
++ Distributed-Computing
++ Cloud-Computing
++ Algorithm
++ Data-Structure
++ Java
++ Python
++ Web-Service
++ Linux
++ MySQL
++ Data-Mining
++ Machine-Learning
++ Mathematics-Statistics
++ Concept
++ demo

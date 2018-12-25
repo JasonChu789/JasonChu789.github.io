@@ -11,9 +11,10 @@ redirect_from:
 * Kramdown table of contents
 {:toc .toc}
 
-# 编译安装nginx并配置ssl加密的代理服务
+编译安装nginx并配置ssl加密的代理服务
+==========
 
-## 前期准备
+# 前期准备
 安装编译需要的gcc和gcc-c++
 ```
 yum install -y gcc gcc-c++
@@ -36,14 +37,14 @@ nginx-1.12.2.tar.gz
 tar -zxvf nginx-1.12.2.tar.gz
 ```
 
-## 安装依赖和nginx
+# 安装依赖和nginx
 ```
 cd ~/nginx-1.12.2/
 ./configure --prefix=~/app/nginx --with-pcre=~/pcre-8.41 --with-
 http_stub_status_module --with-http_ssl_module --with-openssl=~/openssl-1.0.2o
 make && make install
 ```
-## 生成密钥文件
+# 生成密钥文件
 ```
 openssl gensa -out ca.key 2048
 openssl genrsa -out ca.key 2048
@@ -51,7 +52,7 @@ openssl req -new -key ca.key -out ca.csr
 openssl x509 -req -days 3650 -in ca.csr -signkey ca.key -out ca.crt
 ```
 
-## 配置代理
+# 配置代理
 ```
     server {
         listen       8080 ssl;
@@ -67,5 +68,5 @@ openssl x509 -req -days 3650 -in ca.csr -signkey ca.key -out ca.crt
     }
 ```
 
-## 参考
+# 参考
 * [https://hostpresto.com/community/tutorials/how-to-install-the-apache-web-server-with-ssl-support-on-centos-7/](https://hostpresto.com/community/tutorials/how-to-install-the-apache-web-server-with-ssl-support-on-centos-7/)
